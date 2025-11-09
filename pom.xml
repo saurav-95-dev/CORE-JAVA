@@ -13,6 +13,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
+            <!-- Scope tell that it is only for the testing purpose not for the deployment-->
             <scope>test</scope>
         </dependency>
     </dependencies>
