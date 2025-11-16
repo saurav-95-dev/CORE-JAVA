@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalcTest {
 
     @org.junit.jupiter.api.Test
-    void divide() {
+    void test() {
         Calc calc = new Calc();
-        assertEquals(5, calc.divide(10, 2));
+        assertEquals("ved" , calc.reverseString("dev") );
     }
 }
