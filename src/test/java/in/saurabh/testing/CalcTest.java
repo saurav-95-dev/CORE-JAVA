@@ -1,13 +1,12 @@
 package in.saurabh.testing;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CalcTest extends TestCase {
+class CalcTest {
 
-    public void testDivide() {
+    @org.junit.jupiter.api.Test
+    void divide() {
         Calc calc = new Calc();
-        int actualResult = calc.divide(12,6);
-        int expectedResult = 2;
-        assertEquals(expectedResult, actualResult);
+        assertEquals(5, calc.divide(10, 2));
     }
 }

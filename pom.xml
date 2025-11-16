@@ -16,6 +16,12 @@
             <!-- Scope tell that it is only for the testing purpose not for the deployment-->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
