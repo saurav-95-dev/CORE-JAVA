@@ -1,3 +1,5 @@
+//To run test via command-line without IDE -- Add maven-surefire-plugin in pom.xml and initiate mvn test inside terminal.
+//To run a test for a specific method inside a specific class --> mvn test -Dtest=MyTestClass#myTestMethod
 package in.saurabh.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
