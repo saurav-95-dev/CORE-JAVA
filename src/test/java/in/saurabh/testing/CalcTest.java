@@ -15,6 +15,6 @@ class CalcTest {
     @org.junit.jupiter.api.Test
     void testReverse2() {
 
-        assertEquals("eman yM" , calc.reverseString("My name") );
+        assertEquals("eman yo" , calc.reverseString("My name") , "Bro . ...you missed !" );
     }
 }
