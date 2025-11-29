@@ -1,3 +1,4 @@
+//To Run JUNIT-TESTS without IDE via CLI --> mvn clean install / mvn test
 package com.saurabh.learning;
 
 import org.junit.Test;
