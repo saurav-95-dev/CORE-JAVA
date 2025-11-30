@@ -13,4 +13,5 @@ public class CalcTest {
         int expectedResult = 5;
         assertEquals(expectedResult, actualResult);
     }
+
 }
