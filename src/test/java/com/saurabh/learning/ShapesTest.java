@@ -13,7 +13,7 @@ class ShapesTest {
      @Test
     void circleArea(){
         Shapes shapes = new Shapes();
-        assertEquals( 28.26 , shapes.circleArea(3));
+        assertEquals( 28.26 , shapes.circleArea(3) , 0.001);
     }
 
 }
