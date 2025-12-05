@@ -15,12 +15,7 @@ class ShapesTest {
         Shapes shapes = new Shapes();
         assertEquals( 28.26 , shapes.circleArea(3) , 0.001);
     }
-    @Test
-    void circleArea_supplierInterface(){
-        Shapes shapes = new Shapes();
-        assertEquals( 28.26 , shapes.circleArea(3) , 0.001 , ()->" Circle area is wrong");
-    }
+
 
 }
 
-//Supplier interface would only evaluate failed string in-case if the test-case fails.
