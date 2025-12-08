@@ -1,9 +1,6 @@
 package com.saurabh.learning;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.fail;
 
 public class TestException {
     @Test
@@ -15,9 +12,6 @@ public class TestException {
             int[] newArray = ex.sortArray(unsortedArray);
 
         }
-        catch (NullPointerException e){
-            System.out.println("NullPointerException");
 
-        }
     }
 }
