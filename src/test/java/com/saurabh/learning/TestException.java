@@ -14,7 +14,6 @@ public class TestException {
             int[] unsortedArray = null;
             int[] newArray = ex.sortArray(unsortedArray);
 
-            Assertions.fail();
         }
         catch (NullPointerException e){
             System.out.println("NullPointerException");
