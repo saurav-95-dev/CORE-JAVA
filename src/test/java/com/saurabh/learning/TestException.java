@@ -7,6 +7,14 @@ public class TestException {
     void testException(){
         Exception ex = new Exception();
 
+        try{
+            int[] unsortedArray = null;
+            int[] newArray = ex.sortArray(unsortedArray);
 
+        }
+        catch (NullPointerException e){
+            System.out.println("NullPointerException");
+
+        }
     }
 }
