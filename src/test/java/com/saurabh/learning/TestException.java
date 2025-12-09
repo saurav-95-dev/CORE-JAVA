@@ -11,13 +11,15 @@ public class TestException {
         Exception ex = new Exception();
 
         try{
-            int[] unsortedArray = null;
+            int[] unsortedArray = {1,2,0,4,5};
             int[] newArray = ex.sortArray(unsortedArray);
-
+            for(int ele : newArray){
+                System.out.println(ele);
+            }
             Assertions.fail();
         }
         catch (NullPointerException e){
-            System.out.println("NullPointerException");
+            System.out.println(e);
 
         }
     }
