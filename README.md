@@ -6,4 +6,5 @@ CONTENTS :
 4 -> AssertEquals() method and running tests via CLI and hte concept of delta/tolerance
 5 -> AssertTrue/AssertFalse 
 6 -> JUNIT-Tests on array
+7 -> JUNIT-Tests on Java Exceptions
 
