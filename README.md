@@ -5,4 +5,5 @@ CONTENTS :
 3 -> Pom.xml configuration for JUNIT-5-Jupiter
 4 -> AssertEquals() method and running tests via CLI and hte concept of delta/tolerance
 5 -> AssertTrue/AssertFalse 
+6 -> JUNIT-Tests on array
 
