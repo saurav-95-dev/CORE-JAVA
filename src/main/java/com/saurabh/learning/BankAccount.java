@@ -1,6 +1,6 @@
 package com.saurabh.learning;
 
-class BankAccount {
+public class BankAccount {
     private int balance = 0;
 
     void deposit(int amount) {
