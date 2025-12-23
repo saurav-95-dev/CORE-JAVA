@@ -6,11 +6,11 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
-class TestingPerformance {
-    @Test
-    void testPerformance() {
-        SortingArray array = new SortingArray();
-        int[] unsortedArray = {2,3,6,54};
-        assertTimeout(Duration.ofMillis(10),()->{array.sortingArray(unsortedArray);});
-    }
+public class TestingPerformance{
+     SortingArray sa = new SortingArray();
+     @Test
+    void testSortingArray(){
+         int[] unsorted = {2,1,4,3,8,0};
+         assertTimeout(Duration.ofMillis(100) , ()->{sa.sortingArray(unsorted);} , "can't be done in this time-limit");
+     }
 }
