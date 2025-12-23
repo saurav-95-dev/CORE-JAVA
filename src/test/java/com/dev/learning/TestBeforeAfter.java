@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.Assert.assertEquals;
 
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TestBeforeAfter {
 
     TestBeforeAfter(){
@@ -14,11 +14,11 @@ class TestBeforeAfter {
     Shapes s;
 
     @BeforeAll
-    static void beforeAll() {
+    void beforeAll() {
         System.out.println("Before All tests");  //executed only once
     }
     @AfterAll
-    static void afterAll() {
+    void afterAll() {
         System.out.println("After All tests");
     }
     @BeforeEach
