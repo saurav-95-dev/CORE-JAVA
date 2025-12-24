@@ -3,57 +3,40 @@ package com.dev.learning;
 import java.util.Arrays;
 
 public class Practice{
-    public static void main(String[] args){
-        //Linear search :
-        int[] arr = new int[10000];
-        int target = 900;
-        //Object creation:
-        Practice p = new Practice();
-        int index1 = p.binarySearch(arr, target);
-        int index2 = p.linearSearch(arr , target);
-
-        if(index1 != -1 || index2 != -1){
-            System.out.println("Element found at index :" + index1);
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,6,7,8};
+        int n = arr.length;
+        System.out.println("Before sorting:");
+        for(int i : arr){
+            System.out.print(i+" ");
         }
-        else{
-            System.out.println("Element not found");
+        System.out.println();
+        bubbleSort(arr , n);
+        System.out.println("After sorting:");
+        for(int i : arr){
+            System.out.print(i+" ");
         }
     }
-    int step1 = 0;
 
-    public int linearSearch(int[] arr , int target){
-        for(int i=0;i<arr.length;i++){
-            if(arr[i] == target){
-                System.out.println("Number of steps in linear:" + step1);
-                return i;
-            }
-            step1++;
+    public static void bubbleSort(int[] arr, int n){
 
-        }
-        System.out.println("Number of steps in linear:" + step1);
-        return -1;
-    }
-    int step2 = 0;
-    public int binarySearch(int[] arr , int target){
-        Arrays.sort(arr);
-        int start = 0;
-        int end = arr.length-1;
+         int temp = 0;
+         //outer loop is to track number of rounds.
+         for(int i = 0; i<=n-1;i++){
+             int flag = 0;
+             for(int j = 0;j<n-i-1;j++){
+                 if(arr[j]>arr[j+1]){
+                     temp = arr[j];
+                     arr[j] = arr[j+1];
+                     arr[j+1] = temp;
+                     flag = 1;
+                 }
+             }
+             if(flag==0){
+                 System.out.println("Number of rounds taken:" + i);
+                 break;
+             }
 
-        while(start <= end){
-            int mid = start + (end-start)/2;
-             if(arr[mid] == target){
-                 System.out.println("Number of steps in binary:" + step2);
-                 return mid;
-             }
-             else if(arr[mid] > target){
-                 end =  mid-1;
-             }
-             else if(arr[mid] < target){
-                 start = mid+1;
-             }
-             step2++;
-        }
-        System.out.println("Number of steps in binary:" + step2);
-        return -1;
+         }
     }
 }
