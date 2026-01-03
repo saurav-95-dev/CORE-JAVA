@@ -1,24 +1,25 @@
 package com.dev.learning;
-//Algo -> The idea is to identify the curr minimum from the array and do swaping with the assumed minimum.
-//After each inner loop processing , one element will be placed a correct position from the left side onwards.
+//Algo ->
+/*The Idea is to start traversing from the 2nd idx & check all the
+prev items .If they are greater than the current value, then first store the current value
+& shift all the prior elements to right & then place current in its
+correct position.*/
+
 class Main{
     public static void main(String[] args){
-        System.out.println("Selection sort:");
+        System.out.println("Insertion sort:");
         //Eg -> {2,1,4,3,5,6,9,7}
         int[] arr = {2,1,4,3,5,6,9,7,-1,0,1};
         int n = arr.length;
-        for(int i=0;i<n-1;i++){
-            int minIndex  = i;
-            for(int j=i+1;j<n;j++){
-                if(arr[j] < arr[minIndex]){
-                    minIndex = j;
-                }
+        //No swapping is required:
+        for(int i = 1; i < n; i++){
+            int curr = arr[i];
+            int j = i-1;
+            while(j>=0 && arr[j] > curr){
+                arr[j+1] = arr[j];
+                j--;
             }
-            if (minIndex != i) {
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
-            }
+            arr[j+1] = curr;
         }
         for(int i : arr){
             System.out.print(i+ " ");
