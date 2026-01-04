@@ -2,5 +2,10 @@ package com.dev.learning;
 
 class Node{
     int data;
-    Node node;
+    Node next;
+
+    Node(int data){
+        this.data = data;
+        this.next = null;
+    }
 }
