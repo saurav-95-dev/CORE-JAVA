@@ -8,6 +8,9 @@ public class Runner{
         linkedList.insertAtBeginning(2);
         linkedList.insertAtBeginning(3);
         linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
 
     }
 }
