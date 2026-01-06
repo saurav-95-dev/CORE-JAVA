@@ -85,6 +85,9 @@ public class LinkedList {
                 temp =  temp.next;
             }
             //after this while loop , curr is pointing at target node that has to be deleted.
+            if(curr.next==null){
+                tail = temp;
+            }
             temp.next = curr.next;
             curr.next = null;
 
