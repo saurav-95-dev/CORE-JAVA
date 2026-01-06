@@ -14,11 +14,27 @@ public class Runner{
         linkedList.insertAtEnd(11);
         linkedList.insertAtEnd(12);
         linkedList.insertAtEnd(13);
+        linkedList.insertAtEnd(14);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtPosition(22,4);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtPosition(28,9);
         linkedList.printList();
         System.out.println();
         System.out.println("Head is pointing at:" + linkedList.head.data);
         System.out.println("Tail is pointing at:" + linkedList.tail.data);
 
+        linkedList.insertAtPosition(8,0);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
 
     }
 }
