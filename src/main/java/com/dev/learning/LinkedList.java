@@ -75,6 +75,11 @@ public class LinkedList {
         else{
             Node temp = head;
             Node curr = head.next;
+            //deleting starting node :
+            if(value == temp.data){
+                head = head.next;
+                return;
+            }
             while(curr.data != value && curr.next != null){
                 curr = curr.next;
                 temp =  temp.next;
