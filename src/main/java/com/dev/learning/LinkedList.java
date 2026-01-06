@@ -66,6 +66,26 @@ public class LinkedList {
 
     }
 
+    public void deletionOfTargetNode(int value){
+        //in case of empty list :
+        if(head == null){
+            System.out.println("Oops ! , List is empty , item can't be deleted.");
+            return;
+        }
+        else{
+            Node temp = head;
+            Node curr = head.next;
+            while(curr.data != value && curr.next != null){
+                curr = curr.next;
+                temp =  temp.next;
+            }
+            //after this while loop , curr is pointing at target node that has to be deleted.
+            temp.next = curr.next;
+            curr.next = null;
+
+        }
+    }
+
     public void printList(){
         Node temp = head;
         while(temp != null){
