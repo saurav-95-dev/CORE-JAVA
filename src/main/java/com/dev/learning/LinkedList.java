@@ -17,6 +17,18 @@ class LinkedList{
         }
     }
 
+    public void insertAtTail(int data){
+        Node newNode = new Node(data);
+        if(tail == null){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
+
     public void printList(){
         Node current = head;
         while(current != null){
