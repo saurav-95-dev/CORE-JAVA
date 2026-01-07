@@ -1,7 +1,5 @@
 package com.dev.learning;
 
-import java.util.LinkedList;
-
 class Runner{
     public static void main(String[] args){
         System.out.println("Inside main method:");
@@ -10,10 +8,11 @@ class Runner{
          linkedList.insertAtHead(1);
          linkedList.insertAtHead(2);
          linkedList.insertAtHead(3);
+         linkedList.insertAtHead(4);
          linkedList.printList();
-         System.out.println("Head is pointing at :" + head.data);
-         System.out.println("Tail is pointing at :" + tail.data);
-
+         System.out.println();
+         System.out.println("Head is pointing at :" + linkedList.head.data);
+         System.out.println("Tail is pointing at :" + linkedList.tail.data);
 
     }
 }
