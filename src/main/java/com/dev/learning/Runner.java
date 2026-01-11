@@ -7,7 +7,32 @@ public class Runner{
         LinkedList linkedList = new LinkedList();
         linkedList.insertAtHead(0);
         linkedList.printList();
+        System.out.println();
         System.out.println("Head is pointing at:" + linkedList.head.data);
         System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtHead(1);
+        linkedList.insertAtHead(2);
+        linkedList.insertAtHead(3);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtTail(11);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtTail(12);
+        linkedList.insertAtTail(13);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        linkedList.insertAtIndex(2,22);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+
     }
 }
