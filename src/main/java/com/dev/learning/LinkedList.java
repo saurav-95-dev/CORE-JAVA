@@ -67,6 +67,47 @@ public class LinkedList{
 
     }
 
+    public void deleteTargetNode(int index){
+        if(index < 0){
+            System.out.println("Invalid index");
+            return;
+        }
+
+        if(head == null){
+            System.out.println("Oops.. List is empty!");
+            return;
+        }
+
+        // delete head
+        if(index == 0){
+            head = head.next;
+            if(head == null){
+                tail = null;
+            }
+            return;
+        }
+
+          Node prev = null;
+          Node curr = head;
+          int count = 0;
+          while(count < index && curr != null){
+              prev = curr;
+              curr = curr.next;
+              count++;
+          }
+          if(curr == null){
+              System.out.println("Index out of bounds!");
+              return;
+          }
+
+          prev.next = curr.next;
+          if(curr.next == null){
+              tail = prev;
+          }
+          curr.next = null;
+
+    }
+
     public void printList(){
         Node temp = head;
         while(temp!=null){

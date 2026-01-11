@@ -48,6 +48,26 @@ public class Runner{
         System.out.println();
         System.out.println("Head is pointing at:" + linkedList.head.data);
         System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        System.out.println();
+        //Deletion:
+        System.out.println("Deletion");
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        System.out.println("After deletion of 3rd index element");
+        linkedList.deleteTargetNode(3);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+        System.out.println("After deletion of 9th index element");
+        linkedList.deleteTargetNode(9);
+        linkedList.printList();
+        System.out.println();
+        System.out.println("Head is pointing at:" + linkedList.head.data);
+        System.out.println("Tail is pointing at:" + linkedList.tail.data);
+
 
     }
 }
