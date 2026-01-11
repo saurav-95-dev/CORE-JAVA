@@ -39,7 +39,6 @@ public class LinkedList{
         //handle first and last position:
         if(index == 0){
             insertAtHead(value);
-            return;
         }
         else{
             Node current = head;
@@ -49,6 +48,9 @@ public class LinkedList{
                 count++;
             }
             newNode.next = current.next;
+            if(current.next == null){
+                tail = newNode;  //handling tail position for insertion at last
+            }
             current.next = newNode;
 
         }
@@ -60,5 +62,15 @@ public class LinkedList{
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
+    }
+
+    public int listSize(){
+        int size = 0;
+        Node temp = head;
+        while(temp!=null){
+            size++;
+            temp = temp.next;
+        }
+        return size;
     }
 }
