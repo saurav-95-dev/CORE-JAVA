@@ -32,10 +32,21 @@ public class DynamicStack {
             top--;
             data =  arr[top];
             arr[top] = 0;
+            shrink();
 
         }
         return data;
 
+    }
+
+    private void shrink(){
+        int l = size();
+        if(l <= (capacity/2)/2){
+            capacity  = capacity/2;
+        }
+        int[] newStack = new int[capacity];
+        System.arraycopy(arr, 0, newStack, 0, l);
+        arr = newStack;
     }
 
     public int peek(){
