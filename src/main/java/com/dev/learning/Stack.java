@@ -9,6 +9,17 @@ public class Stack {
          top++;
     }
 
+    public int pop(){
+        top--;
+        int data =  arr[top];
+        arr[top] = 0;
+        return data;
+    }
+
+    public int peek(){
+        return arr[top-1];
+    }
+
     public void show(){
           for(int i : arr){
               System.out.print(i + " ");

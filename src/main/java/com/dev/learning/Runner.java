@@ -10,6 +10,13 @@ class Runner{
         stack.push(3);
         stack.push(4);
         stack.show();
+        System.out.println();
+        int p = stack.pop();
+        System.out.println("This value has been popped -> " + p);
+        stack.show();
+        System.out.println();
+        int s = stack.peek();
+        System.out.println("Current element in the top (Peek): " + s);
 
     }
 }
