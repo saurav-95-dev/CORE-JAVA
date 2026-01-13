@@ -1,8 +1,16 @@
+//Stack-Implementation -- Basic:
 package com.dev.learning;
 
-public class Runner{
+class Runner{
     public static void main(String[] args){
         System.out.println("Inside main function:");
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.show();
 
     }
 }
+
