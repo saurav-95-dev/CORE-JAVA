@@ -19,8 +19,11 @@ public class Queue{
 
     public void show(){
         System.out.println("Elements:");
-        for(int i=0;i<size;i++){
-            System.out.print(queue[front + i]+" ");
+//        for(int i=0;i<size;i++){
+//            System.out.print(queue[front + i]+" ");
+//        }
+        for(int i : queue){
+            System.out.print(i + " ");
         }
     }
 

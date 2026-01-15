@@ -11,6 +11,7 @@ class Runner{
         queue.enQueueu(4);
         queue.show();
         System.out.println();
+        System.out.println("Removing--dequeue:");
         System.out.println(queue.deQueue());
         queue.show();
         System.out.println();
