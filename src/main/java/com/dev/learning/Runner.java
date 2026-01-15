@@ -7,7 +7,14 @@ class Runner{
         Queue queue = new Queue();
         queue.enQueueu(1);
         queue.enQueueu(2);
+        queue.enQueueu(3);
+        queue.enQueueu(4);
         queue.show();
+        System.out.println();
+        System.out.println(queue.deQueue());
+        queue.show();
+        System.out.println();
+
 
 
     }
