@@ -5,10 +5,10 @@ public class Queue{
     int size;
     int front;
     int rear;
-    public void enQueueu(int data){
+    public void enQueue(int data){
         queue[rear] = data;
         rear++;
-        size++;
+        size++;        //here, front is always 0
     }
     public int deQueue(){
         int data = queue[front];
@@ -19,12 +19,11 @@ public class Queue{
 
     public void show(){
         System.out.println("Elements:");
-//        for(int i=0;i<size;i++){
-//            System.out.print(queue[front + i]+" ");
-//        }
-        for(int i : queue){
-            System.out.print(i + " ");
+        //BUG IN PRINTING ELEMENTS:
+        for(int i=0;i<size;i++){
+            System.out.print(queue[front + i]+" ");
         }
+
     }
 
 
