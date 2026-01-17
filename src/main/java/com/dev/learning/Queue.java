@@ -1,30 +1,21 @@
 package com.dev.learning;
 
-public class Queue{
-    int queue[]  = new int[5];
-    int size;
+class Queue{
+    //Static size/Fixed Sized
+    int[] queue  = new int[5];
     int front;
     int rear;
+    int size;
     public void enQueue(int data){
         queue[rear] = data;
         rear++;
-        size++;        //here, front is always 0
-    }
-    public int deQueue(){
-        int data = queue[front];
-        front++;
-        size--;
-        return data;
+        size++;
     }
 
     public void show(){
-        System.out.println("Elements:");
-        //BUG IN PRINTING ELEMENTS:
         for(int i=0;i<size;i++){
-            System.out.print(queue[front + i]+" ");
+            System.out.print(queue[i]+" ");
         }
-
     }
-
 
 }
