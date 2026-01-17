@@ -8,7 +8,7 @@ class Queue{
     int rear;
     int size;
     public void enQueue(int data){
-        if(size == n){
+        if(isFull()){
             System.out.println("Queue is full");
             return;
         }
@@ -18,7 +18,7 @@ class Queue{
     }
 
     public int deQueue(){
-        if(size == 0){
+        if(isEmpty()){
             System.out.println("Queue is empty");
             return -1;
         }
@@ -26,6 +26,17 @@ class Queue{
         front =  (front + 1)%n;
         size--;
         return data;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+    public boolean isFull(){
+        return size == n;
+    }
+
+    public int getSize(){
+        return size;
     }
 
     public void show(){

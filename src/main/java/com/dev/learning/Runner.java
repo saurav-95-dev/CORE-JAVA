@@ -21,6 +21,9 @@ class Runner{
         queue.enQueue(6);
         System.out.println("Current Elements inside queue after again 2 enQueue():");
         queue.show();
+        queue.enQueue(7);
+        queue.enQueue(8);
+
 
 
     }
