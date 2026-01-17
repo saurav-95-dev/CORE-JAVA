@@ -8,12 +8,20 @@ class Queue{
     int rear;
     int size;
     public void enQueue(int data){
+        if(size == n){
+            System.out.println("Queue is full");
+            return;
+        }
         queue[rear] = data;
         rear = (rear + 1)%n;
         size++;
     }
 
     public int deQueue(){
+        if(size == 0){
+            System.out.println("Queue is empty");
+            return -1;
+        }
         int  data = queue[front];
         front =  (front + 1)%n;
         size--;
@@ -23,7 +31,6 @@ class Queue{
     public void show(){
         for(int i=0;i<size;i++){
             System.out.print(queue[(front + i)%n]+" ");
-            //0+1 , 1+1 , 1+2 , 1+3 , 1+4 ->5
         }
         System.out.println();
         System.out.println("Elements inside actual array:");
