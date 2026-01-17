@@ -12,9 +12,16 @@ class Queue{
         size++;
     }
 
+    public int deQueue(){
+        int  data = queue[front];
+        front++;
+        size--;
+        return data;
+    }
+
     public void show(){
         for(int i=0;i<size;i++){
-            System.out.print(queue[i]+" ");
+            System.out.print(queue[front + i]+" ");
         }
     }
 
