@@ -11,12 +11,13 @@ public class Runner{
         queue.enQueue(3);
         queue.enQueue(4);
         queue.enQueue(5);
-        System.out.println("Elements after 5 enQueue():");
+        System.out.println("Elements after 6 enQueue():");
         queue.show();
         System.out.println();
         System.out.println("Elements after 1 deQueue()-> " + queue.deQueue());
+        queue.enQueue(6);
+        System.out.println("Elements after one enQueue() again:");
         queue.show();
-
 
     }
 }

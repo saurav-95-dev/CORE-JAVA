@@ -8,13 +8,13 @@ public class Queue{
     int size = 0;
 
     public void enQueue(int data){
-        queue[rear] = data;
+        queue[rear % n] = data;
         rear++;
         size++;
     }
 
     public int deQueue(){
-        int data = queue[front];
+        int data = queue[front % n];
         front++;
         size--;
         return data;
@@ -22,7 +22,7 @@ public class Queue{
     public void show(){
         System.out.println("Elements inside queue:" );
         for(int i=0;i<size;i++){
-            System.out.print(queue[front + i]+" ");
+            System.out.print(queue[(front + i)%n]+" ");
         }
         System.out.println();
         System.out.println("Current size of queue:"+size);
