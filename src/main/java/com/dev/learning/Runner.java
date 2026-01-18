@@ -1,11 +1,11 @@
-//Static-Circular-Queue-Implementation:
+//Dynamic-Circular-Queue-Implementation:
 package com.dev.learning;
 
 public class Runner{
     public static void main(String[] args){
         System.out.println("Static-Circular-Queue-Implementation");
         System.out.println();
-        Queue queue = new Queue();
+        DynamicCircularQueue queue = new  DynamicCircularQueue();
         System.out.println("Empty Status:" + queue.isEmpty());
         System.out.println("Full Status:" + queue.isFull());
         queue.enQueue(1);
@@ -32,6 +32,7 @@ public class Runner{
         queue.show();
         System.out.println("Empty Status:" + queue.isEmpty());
         System.out.println("Full Status:" + queue.isFull());
+
 
     }
 }
