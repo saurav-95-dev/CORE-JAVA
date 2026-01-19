@@ -4,7 +4,7 @@ package com.dev.learning;
 class Runner{
     public static void main(String[] args){
         System.out.println("Inside main function:");
-        Stack stack = new Stack();
+        DynamicStackNew stack = new DynamicStackNew();
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -14,5 +14,18 @@ class Runner{
         System.out.println("Popping top element:" +  stack.pop());
         System.out.println("After popping:");
         stack.show();
+        System.out.println("Current sz:" + stack.getSize());
+        System.out.println("Peek:" + stack.peek());
+        System.out.println("Popping top element:" +  stack.pop());
+        System.out.println("After popping:");
+        stack.show();
+        System.out.println("Current sz:" + stack.getSize());
+        System.out.println("Peek:" + stack.peek());
+        stack.push(8);
+        stack.push(9);
+        stack.push(10);
+        System.out.println("Stack capacity now:" +  stack.getSize());
+        System.out.println("Stack sz now : " + stack.getSize());
+
     }
 }
