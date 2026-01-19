@@ -11,5 +11,8 @@ class Runner{
         stack.push(4);
         stack.push(5);
         stack.show();
+        System.out.println("Popping top element:" +  stack.pop());
+        System.out.println("After popping:");
+        stack.show();
     }
 }
