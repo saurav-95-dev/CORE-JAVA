@@ -24,7 +24,7 @@ class Runner{
         stack.push(8);
         stack.push(9);
         stack.push(10);
-        System.out.println("Stack capacity now:" +  stack.getSize());
+        System.out.println("Stack capacity now:" +  stack.capacity);
         System.out.println("Stack sz now : " + stack.getSize());
 
     }

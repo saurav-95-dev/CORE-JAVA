@@ -2,9 +2,9 @@
 package com.dev.learning;
 
 public class DynamicStackNew{
-    int[] arr = new int[5];
     int capacity = 5;
     int top  = 0;
+    int[] arr = new int[capacity];
 
     public void push(int data){
         if(isFull()){
@@ -21,12 +21,20 @@ public class DynamicStackNew{
         arr = newArr;
     }
     public int pop(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+            return -1;
+        }
         top--;
         int data =  arr[top];
         arr[top] = 0;
         return data;
     }
     public int peek(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+            return -1;
+        }
         return arr[top-1];
     }
     public int getSize(){
