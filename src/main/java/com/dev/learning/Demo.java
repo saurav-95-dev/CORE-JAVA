@@ -10,6 +10,9 @@ public class Demo{
         StringBuffer sb  = new StringBuffer("Saurabh dev");
         System.out.println(sb.capacity());
         System.out.println(sb.length());
+        System.out.println(sb.append(" is a great guy..!"));
+        String str = sb.toString();
+        System.out.println(str);
 
 
     }
