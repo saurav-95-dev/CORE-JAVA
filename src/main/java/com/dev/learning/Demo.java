@@ -7,8 +7,10 @@ public class Demo{
     public static void main(String[] args) {
         //Strings in java are immutable by default.
         //Strings can be made mutable by -> StringBuffer and StringBuilder.
-        StringBuffer sb  = new StringBuffer();
+        StringBuffer sb  = new StringBuffer("Saurabh dev");
         System.out.println(sb.capacity());
+        System.out.println(sb.length());
+
 
     }
 }
