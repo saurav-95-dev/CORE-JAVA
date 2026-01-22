@@ -13,6 +13,8 @@ public class Demo{
         System.out.println(sb.append(" is a great guy..!"));
         String str = sb.toString();
         System.out.println(str);
+        //Difference between StringBuffer and StringBuilder
+        //->StringBuffer is Thread Safe, whereas StringBuilder is not.
 
 
     }
