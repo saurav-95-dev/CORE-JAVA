@@ -4,7 +4,12 @@
 //->static members execution flow and class loader.
 //->Variable cerated inside class will be called as instance variable.
 //->Variable created inside method will be referred as local variable.
-//->Static variables are shared by all the objects & they belong to a class not object and hence can be accessed via className
+//->Static variables are shared by all the objects & they belong to a class not object and hence can be accessed via className.
+//CONCEPT - We can initialise a static variable inside a constructor .
+/*Problem with above - Everytime an object gets created, constructor will get called initialising the instance variable
+which is fine.But it will also initialise the static variable which is not the part of the object .
+Hence , static variable should be initialised inside static block(runs only once)
+ */
 package com.dev.learning;
 
 class Mobile{
@@ -13,24 +18,32 @@ class Mobile{
     String company;
     static String device;
 
+    static{
+        device = "Android";
+        System.out.println("Static block runs..");
+    }
+    //constructor:
+    public Mobile(int price, String company) {
+        this.price = price;
+        this.company = company;
+        System.out.println("Constructor runs..");
+    }
     public void show(){
-        System.out.println("Price: ,"+ price + " Company: ,"+ company + " Device-Type: "+ device);
+        System.out.println("Price:"+ price + "  Company:"+ company + "  Device-Type:"+ device);
     }
 
 }
 public class Demo{
     public static void main(String[] args) {
-          Mobile mobile1 = new Mobile();
+          Mobile mobile1 = new Mobile(12 , "Sapient");
           mobile1.price = 100;
           mobile1.company = "Samsung";
           Mobile.device = "ipad";
-
-          Mobile mobile2 = new Mobile();
+          mobile1.show();
+          Mobile mobile2 = new Mobile(13 , "Deloitte");
           mobile2.price = 200;
           mobile2.company = "Motorola";
           Mobile.device = "ipad";
-          mobile1.show();
-          System.out.println();
           mobile2.show();
 
 
