@@ -10,6 +10,9 @@
 which is fine.But it will also initialise the static variable which is not the part of the object .
 Hence , static variable should be initialised inside static block(runs only once)
  */
+/*Whenever object is create -->1)Class loads first(static block get called) , 2)Object gets initialised
+So that means that if we don't have any object, both constructor and static block will not get called.
+ */
 package com.dev.learning;
 
 class Mobile{
@@ -18,16 +21,18 @@ class Mobile{
     String company;
     static String device;
 
-    static{
-        device = "Android";
-        System.out.println("Static block runs..");
-    }
     //constructor:
     public Mobile(int price, String company) {
         this.price = price;
         this.company = company;
         System.out.println("Constructor runs..");
     }
+
+    static{
+        device = "Android";
+        System.out.println("Static block runs..");
+    }
+
     public void show(){
         System.out.println("Price:"+ price + "  Company:"+ company + "  Device-Type:"+ device);
     }
