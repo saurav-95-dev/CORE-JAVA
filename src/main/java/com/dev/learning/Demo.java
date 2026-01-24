@@ -36,14 +36,14 @@ class Mobile{
 public class Demo{
     public static void main(String[] args) {
           Mobile mobile1 = new Mobile(12 , "Sapient");
-          mobile1.price = 100;
-          mobile1.company = "Samsung";
-          Mobile.device = "ipad";
+//          mobile1.price = 100;
+//          mobile1.company = "Samsung";
+//          Mobile.device = "ipad";
           mobile1.show();
           Mobile mobile2 = new Mobile(13 , "Deloitte");
-          mobile2.price = 200;
-          mobile2.company = "Motorola";
-          Mobile.device = "ipad";
+//          mobile2.price = 200;
+//          mobile2.company = "Motorola";
+//          Mobile.device = "ipad";
           mobile2.show();
 
 
