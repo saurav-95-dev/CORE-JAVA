@@ -1,23 +1,33 @@
-
+//Encapsulation:
+//Keys :
 package com.dev.learning;
+class Human{
+    private int age;
+    private String name;
 
-class Mobile{
-
-    Mobile(){
-        System.out.println("constructor of mobile");
+    public int getAge(){
+        return age;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+    public void setName(String name){
+        this.name = name;
     }
 
 }
-public class Demo{
-    static{
-        System.out.println("Static block of main method running..."); //this is running because JVM loads the Demo class because it has main()
-    }
-    Demo(){
-        System.out.println("constructor of Demo"); //This will not run as no object is created.
-    }
 
-    public static void main(String[] args){
-
+class Demo{
+    public static void main(String[] args) {
+        System.out.println("Encapsulation:");
+        Human h = new Human();
+        h.setAge(18);
+        h.setName("new name");
+        System.out.println( h.getAge());
+        System.out.println(h.getName());
 
     }
 }
