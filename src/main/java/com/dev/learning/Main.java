@@ -13,11 +13,14 @@ class DemoClass {
 
         Connection con = DriverManager.getConnection(url, username, password);
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(query);
+        ResultSet rs = st.executeQuery("select * from worker");
 
-        if (rs.next()) {
-            String firstName = rs.getString("first_name");
-            System.out.println(firstName);
+        while (rs.next()) {
+            System.out.println(
+                    rs.getInt("Worker_id") + " " +
+                            rs.getString("first_name") + " " +
+                            rs.getString("last_name")
+            );
         }
 
         rs.close();
