@@ -13,7 +13,7 @@ class DemoClass {
 
         Connection con = DriverManager.getConnection(url, username, password);
         Statement st = con.createStatement();
-        String query = "SELECT * FROM worker";
+        query = "SELECT * FROM worker";
 
         ResultSet rs = st.executeQuery(query);
 
