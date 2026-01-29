@@ -13,11 +13,12 @@ class Demo{
         Connection con = DriverManager.getConnection(url , username , password);
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(query);
-        rs.next();
-//        String first_name = rs.getString("first_name");
-//        String last_name = rs.getString("last_name");
-        String userData = rs.getInt(1) + " : " + rs.getString(2);
-        System.out.println(userData);
+        String userData = "";
+        while(rs.next()){
+            userData = rs.getInt(1) + " : " + rs.getString(2);
+            System.out.println(userData);
+        }
+
         st.close();
         con.close();
 
