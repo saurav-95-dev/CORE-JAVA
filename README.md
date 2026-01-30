@@ -14,3 +14,5 @@ CONTENTS :
 
 ---> JDBC1 
 1 -> Steps to connect JAVA Application to DB
+2 -> Fetching and inserting data from DB .
+3 -> Design pattern - DAO
