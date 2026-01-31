@@ -25,17 +25,20 @@ class DemoClass{
         String username = "root";
         String password = "Saurabh@123"; // your real password
         String query = "select * from Worker";
+        String newQuery1 = "insert into Worker values (64 , 'New Entry')";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, username, password);
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
-            int id = rs.getInt(1);
-            String fname = rs.getString(2);
-            String lname = rs.getString(3);
-            System.out.println(id + " " + fname + " " + lname);
-
-        }
+        //ResultSet rs = st.executeQuery(query);
+        int count = st.executeUpdate(newQuery1);
+//        while (rs.next()) {
+//            int id = rs.getInt(1);
+//            String fname = rs.getString(2);
+//            String lname = rs.getString(3);
+//            System.out.println(id + " : " + fname + " " + lname);
+//        }
+        System.out.println("Inserting one new value:");
+        System.out.println(count + " rows affected");
         con.close();
         st.close();
 
