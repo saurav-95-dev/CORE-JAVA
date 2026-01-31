@@ -25,7 +25,8 @@ class DemoClass{
         String username = "root";
         String password = "Saurabh@123"; // your real password
         String query = "select * from Worker";
-        String newQuery1 = "insert into Worker values (64 , 'New Entry')";
+        String newQuery1 = "INSERT INTO Worker VALUES\n" +
+                "(64, 'New', 'Entry', 50000, NOW(), 'Intern');";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, username, password);
         Statement st = con.createStatement();
