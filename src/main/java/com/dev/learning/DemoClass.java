@@ -14,8 +14,30 @@ b)Register the driver - Class.forName("name of the driver")
 
 package com.dev.learning;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 class DemoClass{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        String url = "jdbc:mysql://localhost:3306/org";
+        String username = "root";
+        String password = "Saurabh@123"; // your real password
+        String query = "select * from Worker";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url, username, password);
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String fname = rs.getString(2);
+            String lname = rs.getString(3);
+            System.out.println(id + " " + fname + " " + lname);
+
+        }
+        con.close();
+        st.close();
 
     }
 }
