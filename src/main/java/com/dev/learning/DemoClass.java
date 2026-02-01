@@ -1,4 +1,5 @@
 //INSERTING VALUES INTO DB USING PREPARED STATEMENT(When the query is fixed and the values are dynamic)
+//NOTE : When using prepared statement - don't pass query inside executeUpdate(), it should be passed only inside the preparedStatement()
 package com.dev.learning;
 
 import java.sql.*;
@@ -9,19 +10,24 @@ class DemoClass{
         System.out.println();
         String username = "root";
         String password = "Saurabh@123";
+        String first_name = "Villan";
+        String last_name = "Kumar";
+        int Worker_id = 67;
         String query = "select * from worker";
-        String insertQuery = "INSERT INTO worker (first_name, last_name, salary, joining_date, department)\n" +
-                "VALUES \n" +
-                "  ('Mr', 'Dev', 30000, '2020-10-21 09:00:00', 'Java Developer')";
+        String newInsertQuery =
+                "INSERT INTO worker (first_name, last_name, salary, joining_date, department) " +
+                        "VALUES (?, ?, ?, ?, ?)";
+
         String url = "jdbc:mysql://localhost:3306/org";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, username, password);
-        Statement st = con.createStatement();
-        //ResultSet rs = st.executeQuery(query);
-        int numberOfRowsEffected = st.executeUpdate(insertQuery);
-//        while(rs.next()){
-//            System.out.println(rs.getInt(1) +" : " + rs.getString(2)+"  "+rs.getString(3));
-//        }
+        PreparedStatement st = con.prepareStatement(newInsertQuery);
+        st.setString(1, first_name);
+        st.setString(2, last_name);
+        st.setInt(3, 60000);
+        st.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+        st.setString(5, "Developer");
+        int numberOfRowsEffected = st.executeUpdate();
         System.out.println(numberOfRowsEffected + " rows affected.");
         st.close();
         con.close();
