@@ -10,12 +10,21 @@ import java.sql.SQLOutput;
 class JdbcDaoDemo {
     public static void main(String[] args) {
         System.out.println("DAO-Design Pattern");
-        Student s1 = getName(12);
-        System.out.println("Name: " + s1.first_name);
+        Student s1 = getStudent(2);
+        System.out.println("Name: " + s1.worker_id);
 
     }
 }
 
 class StudentDao{
+    public Student getStudent(int worker_id) {
+        Student s = new Student();
+        s.worker_id = worker_id;
+        return s;
+    }
+}
 
+class Student{
+    String first_name;
+    int worker_id;
 }
