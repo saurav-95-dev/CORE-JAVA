@@ -10,45 +10,79 @@ import java.sql.*;
 
 class JdbcDaoDemo {
     public static void main(String[] args) throws Exception {
+
         StudentDao studentDao = new StudentDao();
+        studentDao.connect();   // ✅ FIRST
+
+        // FETCH
         Student s1 = studentDao.getStudent(67);
         System.out.println(s1.first_name);
-        System.out.println("Adding a new student entry:");
+
+        // ADD
         Student s2 = new Student();
         s2.first_name = "John";
-        s2.worker_id = 68;
-        studentDao.connect();
+        s2.worker_id = 69;
         studentDao.addStudent(s2);
+
+        // REMOVE
+        studentDao.removeStudent(68);
     }
 }
 
-class StudentDao{
+class StudentDao {
 
-    Connection con = null;
+    Connection con;
 
     public void connect() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/org", "root", "Saurabh@123");
+        con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/org",
+                "root",
+                "Saurabh@123"
+        );
     }
+
     public Student getStudent(int worker_id) throws Exception {
-        String query = "select * from worker where worker_id = " +  worker_id;
+
+        String query = "SELECT * FROM worker WHERE worker_id = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, worker_id);
+
+        ResultSet rs = ps.executeQuery();
         Student s = new Student();
-        s.worker_id = worker_id;
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/org", "root", "Saurabh@123");
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(query);
-        rs.next();
-        s.first_name = rs.getString("first_name");
+
+        if (rs.next()) {
+            s.worker_id = rs.getInt("worker_id");
+            s.first_name = rs.getString("first_name");
+        }
+
+        rs.close();
+        ps.close();
         return s;
     }
 
     public void addStudent(Student s) throws Exception {
-        String query = "insert into worker(worker_id,first_name) values (?,?)";
-        PreparedStatement p = con.prepareStatement(query);
-        p.setInt(1, s.worker_id);
-        p.setString(2, s.first_name);
-        p.executeUpdate();
+
+        String query = "INSERT INTO worker(worker_id, first_name) VALUES (?, ?)";
+        PreparedStatement ps = con.prepareStatement(query);
+
+        ps.setInt(1, s.worker_id);
+        ps.setString(2, s.first_name);
+
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void removeStudent(int worker_id) throws Exception {
+
+        String query = "DELETE FROM worker WHERE worker_id = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, worker_id);
+
+        int rows = ps.executeUpdate();
+        System.out.println(rows + " student(s) removed.");
+
+        ps.close();
     }
 }
 
