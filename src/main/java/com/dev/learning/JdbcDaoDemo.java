@@ -10,9 +10,9 @@ import java.sql.SQLOutput;
 class JdbcDaoDemo {
     public static void main(String[] args) {
         System.out.println("DAO-Design Pattern");
-        Student s1 = getStudent(2);
-        System.out.println("Name: " + s1.worker_id);
-
+        StudentDao studentDao = new StudentDao();
+        Student s1 = studentDao.getStudent(2);
+        System.out.println(s1.worker_id);
     }
 }
 
