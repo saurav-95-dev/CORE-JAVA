@@ -1,113 +1,93 @@
-//DAO-Operations - Fetch , Add , Manipulate , Delete
-/*
-->There will be a class in which all database-logic will be there--Dao class
- */
 package com.dev.learning;
 
 import java.sql.*;
-import java.sql.DriverManager;
 
-class EmployeeDaoDemo{
+public class EmployeeDaoDemo {
     public static void main(String[] args) throws Exception {
-        EmployeeDao e = new EmployeeDao(); //create an object of Dao-class
-        e.connect(); //First make connection of this dao object with DB.
-        Employee s1 = e.getEmployee(2);
-        System.out.println(s1.first_name + " " + s1.last_name);
-        //Adding a new record:
-        System.out.println("Adding a new employee:");
-        Employee s2 = e.addEmployee(70 , "Bhoot" , "Nath");
-        System.out.println(s2.first_name + " " + s2.last_name + " has been added");
-        System.out.println("Changing existing employee:");
-        Employee updated = e.updateEmployee(70, "Ghost", "King");
-        System.out.println("Updated Employee: " + updated.first_name + " " + updated.last_name);
-        System.out.println("Deleting a record:");
-        Employee rm = e.removeEmployee(4);
-        System.out.println(rm.first_name + " " + rm.last_name + " has been deleted");
-
-
+        System.out.println("FETCH OPERATION:");
+        EmployeeDao dao = new EmployeeDao();
+        dao.connect();
+        Employee e1 = dao.getEmployee(2);
+        System.out.println(e1.worker_id + " " + e1.first_name + " " + e1.last_name);
+        System.out.println("Adding a new entry:");
+        Employee e2 = dao.addEmployee(77 , "kuch bhi" ,"nahi" , 40000);
+        System.out.println(e2.worker_id + " " + e2.first_name + " " + e2.last_name);
+        System.out.println("Update operation");
+        Employee e3 = dao.updateEmployee(75 , "hard" , "khalnayak");
+        System.out.println(e3.worker_id + " " + e3.first_name + " " + e3.last_name + " updated");
+        System.out.println("Remove operation:");
+        Employee e4 = dao.remove(5);
+        System.out.println(e4.first_name + " " + e4.last_name + " has been removed");
     }
 }
 
-class EmployeeDao{
-    Connection con = null;
-    //here define all relevant DB-fetch related method and DB Connection:
-    public void connect() throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/org" , "root" , "Saurabh@123");
-    }
+class EmployeeDao {
+        Connection con = null;
 
-    public Employee getEmployee(int worker_id) throws Exception {
-        Employee e = new Employee();
-        e.worker_id = worker_id;
-        String query = "select * from worker where worker_id = ?";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, worker_id);
-        ResultSet rs = ps.executeQuery();
-        while(rs.next()){
-            e.worker_id = rs.getInt("worker_id");
-            e.first_name = rs.getString("first_name");
-            e.last_name = rs.getString("last_name");
+        public void connect() throws Exception {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/org", "root", "Saurabh@123");
         }
-        rs.close();
-        ps.close();
+        //fetch operation:
+        public Employee getEmployee(int worker_id) throws Exception {
+            String query = "select * from worker where worker_id = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1 , worker_id);
+            ResultSet rs = st.executeQuery();
+            Employee e = new Employee();
+            if (rs.next()) {
+                e.worker_id = rs.getInt("worker_id");
+                e.first_name = rs.getString("first_name");
+                e.last_name = rs.getString("last_name");
+            }
+            return e;
+        }
+        //insert/add operation:
 
-        return e;
-    }
-
-    public Employee addEmployee(int worker_id , String first_name , String last_name) throws Exception {
-        Employee e = new Employee();
-        e.worker_id = worker_id;
-        e.first_name = first_name;
-        e.last_name = last_name;
-        String query = "insert into worker (first_name, last_name) values (?, ?)";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, first_name);
-        ps.setString(2, last_name);
-        ps.executeUpdate();
-        ps.close();
-        return e;
-    }
-    public Employee updateEmployee(int worker_id, String first_name, String last_name) throws Exception {
-
-        String query = "UPDATE worker SET first_name = ?, last_name = ? WHERE worker_id = ?";
-        PreparedStatement ps = con.prepareStatement(query);
-
-        ps.setString(1, first_name);
-        ps.setString(2, last_name);
-        ps.setInt(3, worker_id);
-
-        int rows = ps.executeUpdate();
-
-        ps.close();
-
-        Employee e = new Employee();
-        e.worker_id = worker_id;
-        e.first_name = first_name;
-        e.last_name = last_name;
-
-        if (rows == 0) {
-            System.out.println("No employee found with worker_id = " + worker_id);
+        public Employee addEmployee(int worker_id , String first_name , String last_name , int salary) throws Exception {
+              String query = "INSERT INTO worker (worker_id, first_name, last_name, salary) VALUES (?, ?, ?, ?)";
+              PreparedStatement st = con.prepareStatement(query);
+              st.setInt(1 , worker_id);
+              st.setString(2 , first_name);
+              st.setString(3 , last_name);
+              st.setInt(4, salary);
+              int count = st.executeUpdate();
+              Employee e = new Employee();
+              e.worker_id = worker_id;
+              e.first_name = first_name;
+              e.last_name = last_name;
+              e.salary = salary;
+              System.out.println("Added " + count + " " + first_name + " " + last_name);
+              return e;
         }
 
-        return e;
-    }
+        public Employee updateEmployee(int worker_id , String first_name , String last_name) throws Exception {
+              String query = "UPDATE worker SET first_name = ?, last_name = ? WHERE worker_id = ?";
+              PreparedStatement st = con.prepareStatement(query);
+              st.setString(1 , first_name);
+              st.setString(2 , last_name);
+              st.setInt(3, worker_id);
+              int count = st.executeUpdate();
+              Employee e = new Employee();
+              e.worker_id = worker_id;
+              e.first_name = first_name;
+              e.last_name = last_name;
+              return e;
+        }
+        public Employee remove(int worker_id) throws Exception {
+            Employee e = getEmployee(worker_id);
+            String query = "DELETE FROM worker WHERE worker_id = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, worker_id);
+            int count = st.executeUpdate();
+            e.worker_id = worker_id;
+            return e;
+        }
 
-    public Employee removeEmployee(int worker_id) throws Exception {
-        //fetch employee before deletion:
-        Employee e = getEmployee(worker_id);
-        e.worker_id = worker_id;
-        //Now deleting employee:
-        String query = "delete from worker where worker_id = ?";
-        PreparedStatement st = con.prepareStatement(query);
-        st.setInt(1, worker_id);
-        int rows = st.executeUpdate();
-        System.out.println(rows + " row/s has been deleted");
-        return e;
+}
+    class Employee{
+        int worker_id;
+        String first_name;
+        String last_name;
+        int salary;
     }
-}
-
-class Employee{
-    String first_name;
-    String last_name;
-    int worker_id;
-}
