@@ -22,3 +22,21 @@ class PremiumBurger implements Burger {
         System.out.println("Preparing Premium Burger 🍔🥓🧀");
     }
 }
+
+// 3. Factory Class
+class BurgerFactory {
+
+    public static Burger getBurger(String type) {
+
+        if (type.equalsIgnoreCase("NORMAL"))
+            return new NormalBurger();
+
+        else if (type.equalsIgnoreCase("STANDARD"))
+            return new StandardBurger();
+
+        else if (type.equalsIgnoreCase("PREMIUM"))
+            return new PremiumBurger();
+
+        throw new IllegalArgumentException("Invalid Burger Type");
+    }
+}
