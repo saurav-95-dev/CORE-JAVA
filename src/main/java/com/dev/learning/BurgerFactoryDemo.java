@@ -50,3 +50,127 @@ class ColdCoffee implements Drink {
         System.out.println("Pouring Cold Coffee ☕🥤");
     }
 }
+
+/ ---------- Abstract Factory ----------
+
+interface MealFactory {
+    Burger createBurger();
+    Drink createDrink();
+}
+
+// ---------- Concrete Factories ----------
+
+class NormalMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new NormalBurger();
+    }
+    public Drink createDrink() {
+        return new Lemonade();
+    }
+}
+
+class StandardMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new StandardBurger();
+    }
+    public Drink createDrink() {
+        return new Coke();
+    }
+}
+
+class PremiumMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new PremiumBurger();
+    }
+    public Drink createDrink() {
+        return new ColdCoffee();
+    }
+}
+
+// ---------- Client ----------
+
+public class BurgerAbstractFactoryDemo {
+
+    public static void main(String[] args) {
+
+        MealFactory factory;
+
+        String userChoice = "PREMIUM";
+
+        if (userChoice.equalsIgnoreCase("NORMAL")) {
+            factory = new NormalMealFactory();
+        } else if (userChoice.equalsIgnoreCase("STANDARD")) {
+            factory = new StandardMealFactory();
+        } else {
+            factory = new PremiumMealFactory();
+        }
+
+        Burger burger = factory.createBurger();
+        Drink drink = factory.createDrink();
+
+        burger.prepare();
+        drink.pour();
+    }
+}
+
+/ ---------- Abstract Factory ----------
+
+interface MealFactory {
+    Burger createBurger();
+    Drink createDrink();
+}
+
+// ---------- Concrete Factories ----------
+
+class NormalMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new NormalBurger();
+    }
+    public Drink createDrink() {
+        return new Lemonade();
+    }
+}
+
+class StandardMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new StandardBurger();
+    }
+    public Drink createDrink() {
+        return new Coke();
+    }
+}
+
+class PremiumMealFactory implements MealFactory {
+    public Burger createBurger() {
+        return new PremiumBurger();
+    }
+    public Drink createDrink() {
+        return new ColdCoffee();
+    }
+}
+
+// ---------- Client ----------
+
+public class BurgerAbstractFactoryDemo {
+
+    public static void main(String[] args) {
+
+        MealFactory factory;
+
+        String userChoice = "PREMIUM";
+
+        if (userChoice.equalsIgnoreCase("NORMAL")) {
+            factory = new NormalMealFactory();
+        } else if (userChoice.equalsIgnoreCase("STANDARD")) {
+            factory = new StandardMealFactory();
+        } else {
+            factory = new PremiumMealFactory();
+        }
+
+        Burger burger = factory.createBurger();
+        Drink drink = factory.createDrink();
+
+        burger.prepare();
+        drink.pour();
+    }
+}
