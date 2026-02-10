@@ -40,3 +40,14 @@ class BurgerFactory {
         throw new IllegalArgumentException("Invalid Burger Type");
     }
 }
+// 4. Client (Main Class)
+public class BurgerFactoryDemo {
+
+    public static void main(String[] args) {
+
+        String userChoice = "PREMIUM"; // User selection
+
+        Burger burger = BurgerFactory.getBurger(userChoice);
+        burger.prepare();
+    }
+}
