@@ -1,4 +1,4 @@
-package com.dev.learning;
+// File name: BurgerFactoryMethodDemo.java
 
 // 1. Product Interface
 interface Burger {
@@ -11,6 +11,7 @@ class NormalBurger implements Burger {
         System.out.println("Preparing Normal Burger");
     }
 }
+
 class StandardBurger implements Burger {
     public void prepare() {
         System.out.println("Preparing Standard Burger");
@@ -19,35 +20,59 @@ class StandardBurger implements Burger {
 
 class PremiumBurger implements Burger {
     public void prepare() {
-        System.out.println("Preparing Premium Burger");
+        System.out.println("Preparing Premium Burger ");
     }
 }
 
-// 3. Factory Class
-class BurgerFactory {
+// 3. Creator (Factory Method)
+abstract class BurgerStore {
 
-    public static Burger getBurger(String type) {
+    // Factory Method
+    protected abstract Burger createBurger();
 
-        if (type.equalsIgnoreCase("NORMAL"))
-            return new NormalBurger();
-
-        else if (type.equalsIgnoreCase("STANDARD"))
-            return new StandardBurger();
-
-        else if (type.equalsIgnoreCase("PREMIUM"))
-            return new PremiumBurger();
-
-        throw new IllegalArgumentException("Invalid Burger Type");
+    // Template method (fixed flow)
+    public void orderBurger() {
+        Burger burger = createBurger();
+        burger.prepare();
     }
 }
-// 4. Client (Main Class)
-public class BurgerFactoryDemo {
+
+// 4. Concrete Creators
+class NormalBurgerStore extends BurgerStore {
+    protected Burger createBurger() {
+        return new NormalBurger();
+    }
+}
+
+class StandardBurgerStore extends BurgerStore {
+    protected Burger createBurger() {
+        return new StandardBurger();
+    }
+}
+
+class PremiumBurgerStore extends BurgerStore {
+    protected Burger createBurger() {
+        return new PremiumBurger();
+    }
+}
+
+// 5. Client
+public class BurgerFactoryMethodDemo {
 
     public static void main(String[] args) {
 
-        String userChoice = "PREMIUM"; // User selection
+        BurgerStore store;
 
-        Burger burger = BurgerFactory.getBurger(userChoice);
-        burger.prepare();
+        String userChoice = "PREMIUM";
+
+        if (userChoice.equalsIgnoreCase("NORMAL")) {
+            store = new NormalBurgerStore();
+        } else if (userChoice.equalsIgnoreCase("STANDARD")) {
+            store = new StandardBurgerStore();
+        } else {
+            store = new PremiumBurgerStore();
+        }
+
+        store.orderBurger();
     }
 }
