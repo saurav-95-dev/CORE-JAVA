@@ -1,4 +1,4 @@
-//Building-Abstract-Products
+package com.dev.learning;//Building-Abstract-Products
 
 // Burger
 interface Burger {
@@ -8,4 +8,24 @@ interface Burger {
 // Drink
 interface Drink {
     void pour();
+}
+
+// ---------- Concrete Burger Products ----------
+
+class NormalBurger implements Burger {
+    public void prepare() {
+        System.out.println("Preparing Normal Burger");
+    }
+}
+
+class StandardBurger implements Burger {
+    public void prepare() {
+        System.out.println("Preparing Standard Burger ");
+    }
+}
+
+class PremiumBurger implements Burger {
+    public void prepare() {
+        System.out.println("Preparing Premium Burger 🍔🥓🧀");
+    }
 }
