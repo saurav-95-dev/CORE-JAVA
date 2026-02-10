@@ -26,6 +26,27 @@ class StandardBurger implements Burger {
 
 class PremiumBurger implements Burger {
     public void prepare() {
-        System.out.println("Preparing Premium Burger 🍔🥓🧀");
+        System.out.println("Preparing Premium Burger ");
+    }
+
+}
+
+// ---------- Concrete Drink Products ----------
+
+class Coke implements Drink {
+    public void pour() {
+        System.out.println("Pouring Cocacola");
+    }
+}
+
+class Lemonade implements Drink {
+    public void pour() {
+        System.out.println("Pouring Lemonade ");
+    }
+}
+
+class ColdCoffee implements Drink {
+    public void pour() {
+        System.out.println("Pouring Cold Coffee ☕🥤");
     }
 }
