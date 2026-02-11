@@ -26,13 +26,32 @@ class PremiumBurger implements Burger{
     }
 }
 
+//Creating factory class:
+class BurgerFactory{
+    public static Burger createBurger(String burgerType){
+          if(burgerType.equalsIgnoreCase("normal")){
+            return new NormalBurger(); //send a ready-made object from factory class
+          }
+          else if(burgerType.equalsIgnoreCase("standard")){
+              return new StandardBurger();
+          }
+          else if(burgerType.equalsIgnoreCase("premium")){
+              return new PremiumBurger();
+          }
+          else {
+              return null;
+          }
+    }
+}
 
-
-
-
+//client-code---main-function:
 class BurgerFactoryDemo{
     public static void main(String[] args) {
         System.out.println("Simple-Factory");
+        String userChoice = "normal";
+        //creating reference of interface. but for object creation,
+        Burger burger = BurgerFactory.createBurger(userChoice);
+        burger.prepare();
 
     }
 }
