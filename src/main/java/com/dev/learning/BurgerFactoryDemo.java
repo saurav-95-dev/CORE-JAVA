@@ -68,6 +68,33 @@ interface BurgerFactory{
     GarlicBread createGarlicBread(String userChoice);
 }
 
+class SinghBurgerFactory implements BurgerFactory{
+    public Burger createBurger(String userChoice){
+        if(userChoice.equalsIgnoreCase("normal")){
+            return new NormalBurger();
+        }
+        else if(userChoice.equalsIgnoreCase("standard")){
+            return new PremiumBurger();
+        }
+        else if(userChoice.equalsIgnoreCase("premium")){
+            return new PremiumBurger();
+        }
+        else
+            return null;
+    }
+    public GarlicBread createGarlicBread(String userChoice){
+        if(userChoice.equalsIgnoreCase("normal")){
+            return new NormalGarlicBread();
+        }
+        else if(userChoice.equalsIgnoreCase("cheese")){
+            return new CheeseGarlicBread();
+        }
+        else{
+            return null;
+        }
+    }
+}
+
 
 
 class BurgerFactoryDemo{
