@@ -1,57 +1,99 @@
 //FACTORY-DESIGN-PATTERN :
-//->Simple Factory : --->it's  design-principal
+//->Factory Design Pattern ->Injecting abstraction in factory-method
+//NOTE:Static method cannot override interface method.
 package com.dev.learning;
 
-//Declare the interface of the product:
+//First create the interface of the product:
 interface Burger{
     void prepare();
 }
 
-//making concrete class/concrete products to define prepare method:
+//Singh-type burger:
 class NormalBurger implements Burger{
     public void prepare(){
-        System.out.println("Preparing normal burger");
+        System.out.println("This is normal burger");
     }
 }
 
-class StandardBurger  implements Burger{
+class StandardBurger implements Burger{
     public void prepare(){
-        System.out.println("Preparing standard burger");
+        System.out.println("This is standard burger");
     }
 }
 
 class PremiumBurger implements Burger{
     public void prepare(){
-        System.out.println("Premium burger");
+        System.out.println("This is premium burger");
+    }
+}
+//Kings-type burger:
+class NormalWheatBurger implements Burger{
+    public void prepare(){
+        System.out.println("This is normal wheat burger");
+    }
+}
+class StandardWheatBurger implements Burger{
+    public void prepare(){
+        System.out.println("This is standard wheat burger");
     }
 }
 
-//Creating factory class:
-class BurgerFactory{
-    public static Burger createBurger(String burgerType){
-          if(burgerType.equalsIgnoreCase("normal")){
-            return new NormalBurger(); //send a ready-made object from factory class
-          }
-          else if(burgerType.equalsIgnoreCase("standard")){
-              return new StandardBurger();
-          }
-          else if(burgerType.equalsIgnoreCase("premium")){
-              return new PremiumBurger();
-          }
-          else {
-              return null;
-          }
+class  PremiumWheatBurger implements Burger{
+    public void prepare(){
+        System.out.println("This is premium wheat burger");
     }
 }
 
-//client-code---main-function:
-class BurgerFactoryDemo{
+interface BurgerFactory{
+    Burger createBurger(String choice);
+}
+
+class SinghBurger implements BurgerFactory{
+    public Burger createBurger(String choice){
+        if(choice.equalsIgnoreCase("normal")){
+            return new NormalBurger();
+        }
+        else if(choice.equalsIgnoreCase("premium")){
+            return new PremiumBurger();
+        }
+        else if(choice.equalsIgnoreCase("standard")){
+            return new StandardBurger();
+        }
+        else{
+            return null;
+        }
+
+    }
+}
+
+class KingBurger implements BurgerFactory{
+    public Burger createBurger(String choice){
+        if(choice.equalsIgnoreCase("normal")){
+            return  new NormalWheatBurger();
+        }
+        else if(choice.equalsIgnoreCase("premium")){
+            return new PremiumWheatBurger();
+        }
+        else if(choice.equalsIgnoreCase("standard")){
+            return new StandardWheatBurger();
+        }
+        else{
+            return null;
+        }
+    }
+}
+
+//Client-side code :
+public class BurgerFactoryDemo {
     public static void main(String[] args) {
-        System.out.println("Simple-Factory");
-        String userChoice = "normal";
-        //creating reference of interface. but for object creation,
-        Burger burger = BurgerFactory.createBurger(userChoice);
+        String userChoice = "standard";
+        BurgerFactory factory = new KingBurger();
+        Burger burger = factory.createBurger(userChoice);
         burger.prepare();
 
     }
 }
+
+
+
+
