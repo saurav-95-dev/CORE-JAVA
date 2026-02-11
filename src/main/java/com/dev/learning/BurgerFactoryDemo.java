@@ -35,7 +35,38 @@ class CheeseGarlicBread implements GarlicBread{
         System.out.println("This is a cheese garlic bread");
     }
 }
+//kings-type-product:
+class NormalWheatBurger implements Burger{
+    public void createBurger(){
+        System.out.println("This is a normal wheat burger");
+    }
+}
+class StandardWheatBurger implements Burger{
+    public void createBurger(){
+        System.out.println("This is a standard wheat burger");
+    }
+}
+class PremiumWheatBurger implements Burger{
+    public void createBurger(){
+        System.out.println("This is a premium wheat burger");
+    }
+}
+class NormalWheatGarlicBread implements GarlicBread{
+    public void createGarlicBread(){
+        System.out.println("This is a normal wheat garlic bread");
+    }
+}
+class CheeseWheatGarlicBread implements GarlicBread{
+    public void createGarlicBread(){
+        System.out.println("This is a cheese wheat garlic bread");
+    }
+}
 
+//making BurgerFactory
+interface BurgerFactory{
+    Burger createBurger(String userChoice);
+    GarlicBread createGarlicBread(String userChoice);
+}
 
 
 
