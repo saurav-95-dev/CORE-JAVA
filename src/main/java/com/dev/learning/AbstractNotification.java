@@ -38,3 +38,14 @@ class PaymentFactory {
         }
     }
 }
+public class SimpleFactoryDemo {
+
+    public static void main(String[] args) {
+
+        Payment payment =
+                PaymentFactory.createPayment("upi");
+
+        payment.processPayment(5000);
+    }
+}
+
