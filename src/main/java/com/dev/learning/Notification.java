@@ -39,3 +39,14 @@ class NotificationFactory {
     }
 }
 
+public class SimpleFactoryDemo {
+
+    public static void main(String[] args) {
+
+        Notification notification =
+                NotificationFactory.createNotification("email");
+
+        notification.send("Your OTP is 4589");
+    }
+}
+
