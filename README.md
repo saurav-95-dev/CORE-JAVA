@@ -20,6 +20,9 @@ CONTENTS :
 
 ---> LOW-LEVEL-DESIGN (LLD):
 1 -> Factory-Deisgn-Pattern : Basic Code Template, Vehicle Manufacturing System, Notification System, Payment System.
+2 -> DAO-Design-Pattern
+
+
 
 
 
