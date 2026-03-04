@@ -30,3 +30,12 @@ class PaymentContext {
         strategy.pay(amount);
     }
 }
+
+// Main Class
+public class StrategyPaymentExample {
+    public static void main(String[] args) {
+        PaymentStrategy strategy = new UpiPayment(); // Can change dynamically
+        PaymentContext context = new PaymentContext(strategy);
+        context.executePayment(1000);
+    }
+}
