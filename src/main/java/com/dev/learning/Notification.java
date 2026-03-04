@@ -17,3 +17,16 @@ class UpiPayment implements PaymentStrategy {
         System.out.println("Paid " + amount + " using UPI");
     }
 }
+
+// Context Class
+class PaymentContext {
+    private PaymentStrategy strategy;
+
+    public PaymentContext(PaymentStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void executePayment(int amount) {
+        strategy.pay(amount);
+    }
+}
