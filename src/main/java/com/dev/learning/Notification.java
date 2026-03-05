@@ -23,3 +23,10 @@ class PaymentFactory {
         return null;
     }
 }
+
+public class FactoryPaymentExample {
+    public static void main(String[] args) {
+        Payment payment = PaymentFactory.getPayment("UPI");
+        payment.pay(2000);
+    }
+}
