@@ -18,3 +18,21 @@ class Truck implements Vehicle {
         System.out.println("Truck is starting...");
     }
 }
+class VehicleFactory {
+
+    public static Vehicle createVehicle(String type) {
+
+        if(type.equalsIgnoreCase("car")) {
+            return new Car();
+        }
+        else if(type.equalsIgnoreCase("bike")) {
+            return new Bike();
+        }
+        else if(type.equalsIgnoreCase("truck")) {
+            return new Truck();
+        }
+        else {
+            throw new IllegalArgumentException("Invalid vehicle type");
+        }
+    }
+}
