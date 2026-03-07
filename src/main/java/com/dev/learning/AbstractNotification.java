@@ -36,3 +36,12 @@ class VehicleFactory {
         }
     }
 }
+public class SimpleFactoryDemo {
+
+    public static void main(String[] args) {
+
+        Vehicle vehicle = VehicleFactory.createVehicle("car");
+
+        vehicle.start();
+    }
+}
