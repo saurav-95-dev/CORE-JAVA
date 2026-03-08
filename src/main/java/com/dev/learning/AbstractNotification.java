@@ -53,3 +53,19 @@ class PaymentContext {
         strategy.pay(amount);
     }
 }
+public class PaymentSystemDemo {
+
+    public static void main(String[] args) {
+
+        String userChoice = "upi";
+
+        // Factory decides which strategy object to create
+        PaymentStrategy strategy =
+                PaymentFactory.createPayment(userChoice);
+
+        // Context uses that strategy
+        PaymentContext context = new PaymentContext(strategy);
+
+        context.executePayment(5000);
+    }
+}
