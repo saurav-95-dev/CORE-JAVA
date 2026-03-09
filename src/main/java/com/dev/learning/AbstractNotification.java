@@ -22,22 +22,3 @@ class PayPalPayment implements PaymentStrategy {
         System.out.println("Processing ₹" + amount + " using PayPal");
     }
 }
-class PaymentFactory {
-
-    public static PaymentStrategy createPayment(String type) {
-
-        if(type.equalsIgnoreCase("credit")) {
-            return new CreditCardPayment();
-        }
-        else if(type.equalsIgnoreCase("upi")) {
-            return new UPIPayment();
-        }
-        else if(type.equalsIgnoreCase("paypal")) {
-            return new PayPalPayment();
-        }
-        else {
-            throw new IllegalArgumentException("Invalid payment type");
-        }
-    }
-}
-
