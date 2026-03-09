@@ -59,7 +59,7 @@ public class PaymentSystemDemo {
 
         String userChoice = "upi";
 
-        // Factory decides which strategy object to create
+        // Factory decides which trategy object to create
         PaymentStrategy strategy =
                 PaymentFactory.createPayment(userChoice);
 
