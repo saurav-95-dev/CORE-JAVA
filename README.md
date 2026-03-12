@@ -11,12 +11,7 @@ CONTENTS :
 8 -> Testing performance of a unit
 9 -> Life cycle of a java class
 10-> BeforeEach & AfterEach annotation
-
----> JDBC1 
-1 -> Steps to connect JAVA Application to DB
-2 -> Fetching and inserting data from DB .
-3 -> Design pattern - DAO
---------------------------------------------------------------
+----------------
 
 
 
