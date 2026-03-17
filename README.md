@@ -12,15 +12,7 @@ CONTENTS :
 9 -> Life cycle of a java class
 10-> BeforeEach & AfterEach annotation
 
----> JDBC1 
-1 -> Steps to connect JAVA Application to DB
-2 -> Fetching and inserting data from DB .
-3 -> Design pattern - DAO
---------------------------------------------------------------
 
----> LOW-LEVEL-DESIGN (LLD):
-1 -> Factory-Deisgn-Pattern : Basic Code Template, Vehicle Manufacturing System, Notification System, Payment System.
-2 -> DAO-Design-Pattern
 
 
 
