@@ -1,4 +1,4 @@
-CONTENTS : 
+TABLE OF CONTENTS : 
 
 1 -> JUNIT-5 ARCHITECTURE
 2 -> Required libraries for Maven project 
@@ -11,6 +11,7 @@ CONTENTS :
 8 -> Testing performance of a unit
 9 -> Life cycle of a java class
 10-> BeforeEach & AfterEach annotation
+
 
 
 
