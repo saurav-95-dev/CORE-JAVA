@@ -12,6 +12,10 @@ class Main{
         String s2 = "Hi";
         //both s1 and s2 will point to the same address in heap memory under string pool constant.
         System.out.println(s1 == s2);
+        //To Mutate Strings we use StringBuffer and StringBuilder.
+        StringBuffer sb = new StringBuffer("Hi");
+        String result = sb.toString();
+        System.out.println(result);
 
 
     }
