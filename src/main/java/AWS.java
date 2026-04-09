@@ -11,8 +11,18 @@
 ->How to choose an AWS Regions if someone's plan to launch his application ?
 
 # Factors affecting choice of selecting regions :
-->Compliance with data governance.
+->Compliance with data governance and legal requirements
+->Proximity to customers -- Reduced Latency.
+->Available Service within a region
+->Pricing
 
+# AWS Availability Zones AZ:
+->Each region has usually 3 availability zones - min-3 , max-6.
+->Each AZ has one or more data centers with redundant power , networking and connectivity.
+->They are separate from each other to facilitate disaster recovery.
+->They are connected with high bandwidth , ultra low latency networking.
 
-
+#AWS Point of presence (Edge Locations):
+->AWS has 400+ Points of presence
+->Content is delivered to users with lower latency.
 */
