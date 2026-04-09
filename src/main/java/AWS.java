@@ -7,6 +7,12 @@
 
 # AWS Regions:
 ->AWS-Regions are basically a clusters of data centers.
-->Most AWS-Services are region-scoped.
+->Most AWS-Services are region-scoped
+->How to choose an AWS Regions if someone's plan to launch his application ?
+
+# Factors affecting choice of selecting regions :
+->Compliance with data governance.
+
+
 
 */
