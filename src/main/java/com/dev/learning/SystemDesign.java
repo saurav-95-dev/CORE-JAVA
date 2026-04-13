@@ -11,9 +11,6 @@ a)Lack of real world modelling.
 b)Lack of Data Security
 c)Lack scalability and re-usability.
 
-->PILLARS OF OOPS : 4 -> Abstraction , Encapsulation , Inheritance , Polymorphism
-->
-*/
 
 
 
