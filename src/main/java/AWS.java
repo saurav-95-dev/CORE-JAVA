@@ -4,9 +4,11 @@
 # Some Common use-cases - Enterprise IT, Backup & Storage, Big Data Analytics.
 -> Web hosting, Mobile, Social Apps.
 -> Gaming servers running on cloud.
-
+----------------------------------------------------------------------------------
+### - AWS GLOBAL INFRASTRUCTURE OVERVIEW :
 # AWS Regions:
 ->AWS-Regions are basically a clusters of data centers.
+
 ->Most AWS-Services are region-scoped
 ->How to choose an AWS Regions if someone's plan to launch his application ?
 
@@ -24,6 +26,6 @@
 
 #AWS Point of presence (Edge Locations):
 ->AWS has 400+ Points of presence
-->Content is delivered to users with lower latency.
+->Main Essence - Content is delivered to users with lower latency.
 
 */
