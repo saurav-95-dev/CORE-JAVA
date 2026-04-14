@@ -27,5 +27,13 @@
 #AWS Point of presence (Edge Locations):
 ->AWS has 400+ Points of presence
 ->Main Essence - Content is delivered to users with lower latency.
+----------------------------------------------------------------------------------------
+### - INTRODUCTION TO AWS SERVICE-1- IAM (Identity and Access Management) AND AWS-CLI:
+-> It is a global service.
+-> Root Account created by default in aws should not be used or shared.
+-> Users can be grouped together .
+-> Groups can only contain users, not other groups.
+-> Some users don't necessarily need to belong to a group .
+-> Users can belong to a multiple group.
 
 */
