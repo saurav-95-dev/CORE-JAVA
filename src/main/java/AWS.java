@@ -33,8 +33,7 @@
 -> Root Account created by default in aws should not be used or shared.
 -> Users can be grouped together .
 -> Groups can only contain users, not other groups.
--> Some users don't necessarily need to belong to a group .
--> Users can belong to a multiple group.
+
 
 
 
