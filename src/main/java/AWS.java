@@ -36,9 +36,5 @@
 -> Some users don't necessarily need to belong to a group .
 -> Users can belong to a multiple group.
 
-# Why do we create users and groups - to be able to give them access to aws service .
-->In order to allow them to be able to access aws-services , we need to give them permissions.
-->Users and Groups can be assigned JSON Doc called IAM policy.
-->These Policies help to define permission of our users.
 
 
