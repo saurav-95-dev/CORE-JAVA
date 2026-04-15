@@ -28,8 +28,5 @@
 ->AWS has 400+ Points of presence
 ->Main Essence - Content is delivered to users with lower latency.
 ----------------------------------------------------------------------------------------
-### - INTRODUCTION TO AWS SERVICE-1- IAM (Identity and Access Management) AND AWS-CLI:
-
-
 
 
