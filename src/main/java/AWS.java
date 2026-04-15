@@ -42,4 +42,3 @@
 ->These Policies help to define permission of our users.
 
 
-*/
