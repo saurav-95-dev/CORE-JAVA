@@ -48,6 +48,7 @@ Rekognition(Software as a service).
 ->Users and Groups can be assigned JSON documents called policies.
 ->This JSON Policy define permissions for the users.
 ->In AWS we apply least privilege principal:Don't give more permission than a user needs.
+->When you create a user in IAM , it will be available everywhere as it is global.
  */
 
 
