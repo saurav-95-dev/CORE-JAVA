@@ -40,8 +40,14 @@ Lambda(Function as a  Service),
 Rekognition(Software as a service).
 ---------------------------------------------------------------------------------------------------
 ### IAM AND AWS CLI :
-
-
+->IAM - Identity and Access Management, Global Service.
+->Group in IAM can contain users and not other groups.
+->Users don't necessarily need  to belong to a group.
+->A user can belong to a multiple group.
+->We create users and groups to give them permission to use AWS service called IAM permission.
+->Users and Groups can be assigned JSON documents called policies.
+->This JSON Policy define permissions for the users.
+->In AWS we apply least privilege principal:Don't give more permission than a user needs.
  */
 
 
