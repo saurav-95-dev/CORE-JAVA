@@ -8,7 +8,6 @@
 ### - AWS GLOBAL INFRASTRUCTURE OVERVIEW :
 # AWS Regions:
 ->AWS-Regions are basically a clusters of data centers.
-
 ->Most AWS-Services are region-scoped
 ->How to choose an AWS Regions if someone's plan to launch his application ?
 
