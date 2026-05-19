@@ -6,6 +6,8 @@ class Main{
         //name is a reference variable made in stack which is pointing to string object made in heap memory.
         System.out.println("Hello " + name);
         System.out.println(name.charAt(1));
+        //Immutability of Strings :
+
 
     }
 }
