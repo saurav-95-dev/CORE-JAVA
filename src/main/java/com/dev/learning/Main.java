@@ -8,6 +8,9 @@ class Computer{
     public Computer(){
         price = 0;
         company = "Ultikhopdi";
+        System.out.println("inside constructor");
+    }
+    static{
         deviceType = "not decided";
     }
     public static void show(Computer obj1){
@@ -26,7 +29,7 @@ class Main{
          Computer obj2 = new Computer();
          obj2.price = 200;
          obj2.company = "Apple";
-         Computer.deviceType = "Laptop";
+         Computer.deviceType = "Lappy";
          obj1.show(obj1);
 
 
