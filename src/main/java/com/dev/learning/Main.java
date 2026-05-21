@@ -1,38 +1,17 @@
 package com.dev.learning;
 
-class Mobile{
-    String company;
-    int price;
-    static String device;
-
-    static{
-        device = "General";
-        System.out.println("inside static block");
-    }
-    //constructor:
-    public Mobile(){
-        company = "default";
-        price = 0;
-        System.out.println("inside constructor");
-    }
-    static void show(Mobile obj2){
-        System.out.println("inside show");
-        System.out.println("Company:"+obj2.company + ", Price:"+obj2.price + ", Device:"+device);
-    }
-
-}
+//String concept revision :
 class Main{
-    public static void main(String[] args) {
-        Mobile obj1 = new Mobile();
-        obj1.company = "Apple";
-        obj1.price = 100;
-        Mobile obj2 = new Mobile();
-        obj2.company = "Nokia";
-        obj2.price = 100000;
-        Mobile.show(obj2);
-        //obj2.show();
+    public static void main(String[] args){
+        //How String Immutability helps in string pool optimization:
+        String s1 = "Saurabh";
+        String s2 = "saurabh";
+        String s3 = "Saurabh";
+        System.out.println(s1.equals(s3));
+        //in above case only one object is created and both s1 and s3 points to teh same object in the heap memory.
+        s3 = s3 + " Dev"; //here we have created a separate new object in heap and s3 is now pointing to that new location.
 
-
-
+        System.out.println(s1==s3);
+        System.out.println(s3);
     }
 }
