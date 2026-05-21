@@ -12,6 +12,7 @@ class Computer{
     }
     static{
         deviceType = "not decided";
+        System.out.println("inside static block");
     }
     public static void show(Computer obj1){
         System.out.println("Price:" + obj1.price + " company:" + obj1.company + " deviceType:" + deviceType);
@@ -31,7 +32,6 @@ class Main{
          obj2.company = "Apple";
          Computer.deviceType = "Lappy";
          obj1.show(obj1);
-
 
     }
 }
