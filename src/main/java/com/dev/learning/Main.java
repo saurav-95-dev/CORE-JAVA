@@ -1,37 +1,23 @@
+//CONCEPT OF IMMUTABLE STRINGS IN JAVA;
 package com.dev.learning;
-
-class Computer{
-    int price;
-    String company;
-    static String  deviceType; //member of class
-    //constructor:
-    public Computer(){
-        price = 0;
-        company = "Ultikhopdi";
-        System.out.println("inside constructor");
-    }
-    static{
-        deviceType = "not decided";
-        System.out.println("inside static block");
-    }
-    public static void show(Computer obj1){
-        System.out.println("Price:" + obj1.price + " company:" + obj1.company + " deviceType:" + deviceType);
-    }
-
-}
 
 class Main{
     public static void main(String[] args){
-         //Concept of static keyword :
-         Computer obj1 = new Computer();
-         obj1.price = 100;
-         obj1.company = "HP";
-         obj1.deviceType = "Laptop";
-         Computer obj2 = new Computer();
-         obj2.price = 200;
-         obj2.company = "Apple";
-         Computer.deviceType = "Lappy";
-         obj1.show(obj1);
+        System.out.println("inside main function");
+        String s1 = "Saurabh";
+        String s2 = "Dev";
+        String s3 = "Saurabh";
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+        //here s3 will share same memory address as that of s1 in SPC
+        //Immutability of string in java help us to have multiple references in stack pointing to the same object in heap.
+        s1 = s1+" change"; //s1 will start pointing to a new object in the heap
+        System.out.println();
+        System.out.println("After modification:");
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
 
     }
 }
