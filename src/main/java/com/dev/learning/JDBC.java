@@ -1,30 +1,29 @@
 package com.dev.learning;
+
 import java.sql.*;
 
-class DemoClass {
+public class JDBC {
+
     public static void main(String[] args) throws Exception {
 
-        String url = "jdbc:mysql://localhost:3306/org";
-        String username = "root";
-        String password = "xyz"; // your real password
-        String query = "select * from worker";
+        String url = "jdbc:mysql://localhost:3306/jdbclearning";
+        String uname = "root";
+        String pass = "Saurabh@123";
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url, uname, pass);
 
-        Connection con = DriverManager.getConnection(url, username, password);
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select * from worker");
+        Statement stmt = con.createStatement();
 
-        while (rs.next()) {
-            System.out.println(
-                    rs.getInt("id") + " " +
-                            rs.getString("sname") + " " +
-                            rs.getString("sage")
-            );
+        ResultSet rs = stmt.executeQuery("SELECT * FROM student");
+
+        while(rs.next()) {
+
+            int id = rs.getInt("id");
+            String name = rs.getString("sname");
+
+            System.out.println(id + " " + name);
         }
 
-        rs.close();
-        st.close();
         con.close();
     }
 }
