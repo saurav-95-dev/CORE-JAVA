@@ -12,16 +12,14 @@ public class JDBC {
         //Create statement :
         Statement st = con.createStatement();
         //execute logic :
-        String query = "select * from Student";
-        ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String name = rs.getString("sname");
-            int age = rs.getInt("sage");
-            String address = rs.getString("scity");
-            System.out.println(id + " " + name + " " + age + " " + address);
+        String query = "delete from Student where id = 2";
+        int rows = st.executeUpdate(query);
+        if (rows == 0) {
+            System.out.println("deletion failed");
         }
-        rs.close();
+        else{
+            System.out.println("deletion successful");
+        }
         st.close();
         con.close();
     }
