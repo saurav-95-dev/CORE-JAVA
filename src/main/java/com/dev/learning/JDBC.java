@@ -12,13 +12,23 @@ public class JDBC {
         //Create statement :
         Statement st = con.createStatement();
         //execute logic :
-        String query = "delete from Student where id = 2";
-        int rows = st.executeUpdate(query);
-        if (rows == 0) {
-            System.out.println("deletion failed");
+        //common method for CRUD in JDBC :
+        String query = "insert into Student values (2 , 'Laukik' , 32 , 'Gurugram')";
+        boolean status = st.execute(query);
+        if(status){
+            ResultSet rs = st.getResultSet();
+            while(rs.next()){
+                System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getString(4));
+
+            }
         }
         else{
-            System.out.println("deletion successful");
+            int rows = st.getUpdateCount();
+            if (rows == 0) {
+                System.out.println("Operation failed");
+            }else{
+                System.out.println("Operation successful");
+            }
         }
         st.close();
         con.close();
