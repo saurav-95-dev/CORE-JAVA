@@ -11,15 +11,17 @@ public class JDBC {
         Connection con = DriverManager.getConnection(url, username, password);
         //Create statement :
         Statement st = con.createStatement();
-        String query = "update Student set sage = 29 where id = 2";
-        int rowsAffected = st.executeUpdate(query);
-        if(rowsAffected == 0){
-            System.out.println("No rows affected");
+        //execute logic :
+        String query = "select * from Student";
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("sname");
+            int age = rs.getInt("sage");
+            String address = rs.getString("scity");
+            System.out.println(id + " " + name + " " + age + " " + address);
         }
-        else{
-            System.out.println("Updation successful " + rowsAffected + " affected");
-        }
-
+        rs.close();
         st.close();
         con.close();
     }
