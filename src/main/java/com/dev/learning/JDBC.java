@@ -8,16 +8,16 @@ public class JDBC {
         String url = "jdbc:mysql://localhost:3306/jdbclearning";
         String username = "root";
         String password = "Saurabh@123"; // your real password
-
         Connection con = DriverManager.getConnection(url, username, password);
+        //Create statement :
         Statement st = con.createStatement();
-        String query = "insert into Student (id , sname , sage , scity) values (2,'Rahul',22,'Waasepur')";
+        String query = "update Student set sage = 29 where id = 2";
         int rowsAffected = st.executeUpdate(query);
-        if(rowsAffected == 0) {
-            System.out.println("Unable to insert record");
+        if(rowsAffected == 0){
+            System.out.println("No rows affected");
         }
         else{
-            System.out.println("Record inserted successfully");
+            System.out.println("Updation successful " + rowsAffected + " affected");
         }
 
         st.close();
