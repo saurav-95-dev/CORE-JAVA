@@ -7,7 +7,7 @@ public class JDBC {
         //Handling exception:
         try{
 
-
+            con = JDBCUtil.getConnection();
             //Create statement :
             st = con.createStatement();
             //execute logic :

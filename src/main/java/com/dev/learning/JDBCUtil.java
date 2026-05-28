@@ -2,6 +2,7 @@ package com.dev.learning;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class JDBCUtil {
     static{
@@ -12,11 +13,14 @@ public class JDBCUtil {
             throw new RuntimeException(e);
         }
     }
-    public static Connection getConnection(){
+    public static Connection getConnection() throws SQLException {
         //2)Establishing the connection:
         String url = "jdbc:mysql://localhost:3306/jdbclearning";
         String username = "root";
         String password = "Saurabh@123"; // your real password
-        con = DriverManager.getConnection(url, username, password);
+        return DriverManager.getConnection(url, username, password);
+    }
+    public static closeConnection(){
+
     }
 }
