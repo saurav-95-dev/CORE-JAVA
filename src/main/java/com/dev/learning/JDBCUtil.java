@@ -14,14 +14,14 @@ public class JDBCUtil {
             throw new RuntimeException(e);
         }
     }
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         //2)Establishing the connection:
         String url = "jdbc:mysql://localhost:3306/jdbclearning";
         String username = "root";
         String password = "Saurabh@123"; // your real password
         return DriverManager.getConnection(url, username, password);
     }
-    public static void closeConnection(Statement st , Connection con)  {
+    public static void closeConnection(Statement st , Connection con) throws SQLException {
         st.close();
         con.close();
     }

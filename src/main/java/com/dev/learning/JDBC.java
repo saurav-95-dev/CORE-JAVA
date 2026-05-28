@@ -12,7 +12,7 @@ public class JDBC {
             st = con.createStatement();
             //execute logic :
             //common method for CRUD in JDBC :
-            String query = "insert into Student values (3 , 'Mukund' , 44 , 'Noida')";
+            String query = "insert into Student values (4 , 'Mudit' , 23 , 'NCR')";
             boolean status = st.execute(query);
             if(status){
                 ResultSet rs = st.getResultSet();
@@ -34,15 +34,17 @@ public class JDBC {
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
-        catch (ClassNotFoundException e){
-            System.out.println(e.getMessage());
-        }
         catch(Exception e){
             System.out.println(e);
         }
         finally{
-            //resource closing :
-            JDBCUtil.closeConnection(st , con);
+            try{
+                //resource closing :
+                JDBCUtil.closeConnection(st , con);
+            }
+            catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
 
         }
     }
