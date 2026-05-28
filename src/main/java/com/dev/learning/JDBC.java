@@ -42,8 +42,8 @@ public class JDBC {
         }
         finally{
             //resource closing :
-            st.close();
-            con.close();
+            JDBCUtil.closeConnection(st , con);
+
         }
     }
 }
