@@ -6,13 +6,8 @@ public class JDBC {
         Statement st = null;
         //Handling exception:
         try{
-            //1)Load and Register the driver:
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            //2)Establishing the connection:
-            String url = "jdbc:mysql://localhost:3306/jdbclearning";
-            String username = "root";
-            String password = "Saurabh@123"; // your real password
-            con = DriverManager.getConnection(url, username, password);
+
+
             //Create statement :
             st = con.createStatement();
             //execute logic :
