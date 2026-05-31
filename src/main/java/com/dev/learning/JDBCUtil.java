@@ -14,7 +14,9 @@ public class JDBCUtil {
             throw new RuntimeException(e);
         }
     }
+    //Step-2 - Creating the connection:
     public static Connection getConnection() throws SQLException {
+        //We are not handling exception here.
         //2)Establishing the connection:
         String url = "jdbc:mysql://localhost:3306/jdbclearning";
         String username = "root";
@@ -22,6 +24,7 @@ public class JDBCUtil {
         return DriverManager.getConnection(url, username, password);
     }
     public static void closeConnection(Statement st , Connection con) throws SQLException {
+        //We are not handling exception here.
         st.close();
         con.close();
     }
