@@ -14,6 +14,7 @@ public class JDBC {
             //Create statement :
             //st = con.createStatement();
             //using prepared statement:
+            //in case of prepared statement , while defining it only we pass the query.
             ps = con.prepareStatement("insert into Student(id , sname , sage ,scity) values(?,?,?,?)");
             System.out.println("Enter the following details:");
             System.out.println();
